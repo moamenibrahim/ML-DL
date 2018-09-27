@@ -2,8 +2,8 @@ import numpy as np
 
 m=1000
 w=np.random.rand(100)
-# x=
-# y=
+x=np.random.rand(100)
+y=np.random.rand(100)
 
 def sigmoid(x):
     expon=1+np.exp(-x)
