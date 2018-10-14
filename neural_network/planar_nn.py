@@ -14,7 +14,7 @@ np.random.seed(1) # set a seed so that the results are consistent
 X, Y = load_planar_dataset()
 
 # Visualize the data:
-plt.scatter(X[0, :], X[1, :], c=Y, s=40, cmap=plt.cm.Spectral);
+plt.scatter(X[0, :], X[1, :], c=Y, s=40, cmap=plt.cm.Spectral)
 
 ### START CODE HERE ### (≈ 3 lines of code)
 shape_X = X.shape
@@ -27,8 +27,8 @@ print ('The shape of Y is: ' + str(shape_Y))
 print ('I have m = %d training examples!' % (m))
 
 # Train the logistic regression classifier
-clf = sklearn.linear_model.LogisticRegressionCV();
-clf.fit(X.T, Y.T);
+clf = sklearn.linear_model.LogisticRegressionCV()
+clf.fit(X.T, Y.T)
 
 # Plot the decision boundary for logistic regression
 plot_decision_boundary(lambda x: clf.predict(x), X, Y)
@@ -441,4 +441,4 @@ if dataset == "blobs":
     Y = Y % 2
 
 # Visualize the data
-plt.scatter(X[0, :], X[1, :], c=Y, s=40, cmap=plt.cm.Spectral);
+plt.scatter(X[0, :], X[1, :], c=Y, s=40, cmap=plt.cm.Spectral)
