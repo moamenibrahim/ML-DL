@@ -1,8 +1,11 @@
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
 from IPython.display import IFrame
 
 # import load_iris function from datasets module
 from sklearn.datasets import load_iris
-IFrame('http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', width=300, height=200)
+IFrame('http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data',
+       width=300, height=200)
 
 # save "bunch" object containing iris dataset and its attributes
 iris = load_iris()
@@ -36,14 +39,13 @@ X = iris.data
 # store response vector in "y"
 y = iris.target
 
-### TRAINING MODEL 
-### KNN 
+# TRAINING MODEL
+# KNN
 
 # print the shapes of X and y
 print(X.shape)
 print(y.shape)
 
-from sklearn.neighbors import KNeighborsClassifier
 
 knn = KNeighborsClassifier(n_neighbors=1)
 print(knn)
@@ -62,10 +64,9 @@ knn.fit(X, y)
 # predict the response for new observations
 print(knn.predict(X_new))
 
-### USING DIFFERENT MODEL 
-### LOGISTIC REGRESSION
+# USING DIFFERENT MODEL
+# LOGISTIC REGRESSION
 # import the class
-from sklearn.linear_model import LogisticRegression
 
 # instantiate the model (using the default parameters)
 logreg = LogisticRegression()
