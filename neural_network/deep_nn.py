@@ -226,7 +226,7 @@ def L_model_forward(X, parameters):
     return AL, caches
 
 
-X, parameters = L_model_forward_test_case_2hidden()
+X, parameters = L_model_forward_test_case()
 AL, caches = L_model_forward(X, parameters)
 print("AL = " + str(AL))
 print("Length of caches list = " + str(len(caches)))
