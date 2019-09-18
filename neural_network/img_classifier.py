@@ -1,3 +1,6 @@
+from planar_nn import *
+from deep_nn import *
+from utils.dnn_utils import *
 import time
 import numpy as np
 import h5py
@@ -5,27 +8,27 @@ import matplotlib.pyplot as plt
 import scipy
 from PIL import Image
 from scipy import ndimage
-from utils.dnn_utils import *
-from neural_network.deep_nn import *
-from neural_network.planar_nn import *
+from keras.datasets import mnist
+from sklearn.model_selection import train_test_split
 
-# %matplotlib inline
 plt.rcParams['figure.figsize'] = (5.0, 4.0)  # set default size of plots
 plt.rcParams['image.interpolation'] = 'nearest'
 plt.rcParams['image.cmap'] = 'gray'
 
-# %load_ext autoreload
-# %autoreload 2
+(train_x_orig, train_y), (test_x_orig, test_y) = mnist.load_data()
 
-np.random.seed(1)
+x = np.concatenate((train_x_orig, test_x_orig))
+y = np.concatenate((train_y, test_y))
 
-train_x_orig, train_y, test_x_orig, test_y, classes = load_data()
+train_size = 0.7
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, train_size=train_size, random_seed=2019)
 
 # Example of a picture
 index = 17
 plt.imshow(train_x_orig[index])
 print("y = " + str(train_y[0, index]) + ". It's a " +
-      classes[train_y[0, index]].decode("utf-8") + " picture.")
+      train_y[0, index].decode("utf-8") + " picture.")
 
 # Explore your dataset
 m_train = train_x_orig.shape[0]
@@ -239,7 +242,7 @@ pred_train = predict(train_x, train_y, parameters)
 
 pred_test = predict(test_x, test_y, parameters)
 
-print_mislabeled_images(classes, test_x, test_y, pred_test)
+# print_mislabeled_images(classes, test_x, test_y, pred_test)
 
 ## START CODE HERE ##
 my_image = "my_image.jpg"  # change this to the name of your image file

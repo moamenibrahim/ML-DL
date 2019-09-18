@@ -1,6 +1,8 @@
 import numpy as np
 import h5py
 import matplotlib.pyplot as plt
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), "..")) 
 from tests.testCases_v2 import *
 from utils.dnn_utils import sigmoid, sigmoid_backward, relu, relu_backward
 
