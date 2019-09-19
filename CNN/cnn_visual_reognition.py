@@ -5,6 +5,10 @@ N = 100  # number of points per class
 D = 2  # dimensionality
 K = 3  # number of classes
 
+# some hyperparameters
+step_size = 1e-0
+reg = 1e-3  # regularization strength
+
 X = np.zeros((N*K, D))  # data matrix (each row = single example)
 y = np.zeros(N*K, dtype='uint8')  # class labels
 
@@ -55,10 +59,6 @@ b += -step_size * db
 # initialize parameters randomly
 W = 0.01 * np.random.randn(D, K)
 b = np.zeros((1, K))
-
-# some hyperparameters
-step_size = 1e-0
-reg = 1e-3  # regularization strength
 
 # gradient descent loop
 num_examples = X.shape[0]

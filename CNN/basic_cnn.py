@@ -30,7 +30,7 @@ model.add(Dense(10))
 model.add(Activation('softmax'))
 
 # give an overview of our model
-model.summary
+model.summary()
 
 """Before the training process,
 we have to put together a learning process in a particular form.
@@ -42,11 +42,9 @@ model.compile(loss='sparse_categorical_crossentropy',
 # dataset with handwritten digits to train the model on
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 x_train = np.expand_dims(x_train, -1)
-# Train the model, iterating on the data in batches of 32 samples# for 10 epochs
-x_test = np.expand_dims(x_test, -1)
-model.fit(x_train, y_train, batch_size=32, epochs=10, validation_data=(x_test, y_test))
 
 # Train the model, iterating on the data in batches of 32 samples
 # for 10 epochs
+x_test = np.expand_dims(x_test, -1)
 model.fit(x_train, y_train, batch_size=32, epochs=10,
           validation_data=(x_test, y_test))
