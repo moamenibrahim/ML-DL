@@ -4,6 +4,7 @@ from IPython.display import IFrame
 
 # import load_iris function from datasets module
 from sklearn.datasets import load_iris
+
 IFrame('http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data',
        width=300, height=200)
 
@@ -63,10 +64,6 @@ knn.fit(X, y)
 
 # predict the response for new observations
 print(knn.predict(X_new))
-
-# USING DIFFERENT MODEL
-# LOGISTIC REGRESSION
-# import the class
 
 # instantiate the model (using the default parameters)
 logreg = LogisticRegression()
